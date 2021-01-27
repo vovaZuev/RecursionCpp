@@ -3,10 +3,18 @@ using namespace std;
 
 #define delimiter "\n===========================================\n";
 
-int Power(int n, int p)
+int Power_main(int n, int p)
 {
 	if (p == 0) return 1;
-	return n * Power(n, p - 1);
+	return n * Power_main(n, p - 1);
+}
+
+double Power(int n, int p)
+{
+	if (p < 0)
+		return 1.0 / Power_main(n, -p);
+	else
+		return Power_main(n, p);
 }
 
 int fib_num(int n)
