@@ -3,42 +3,34 @@ using namespace std;
 
 #define delimiter "\n===========================================\n";
 
-int Power_main(int n, int p);
 
-double Power(int n, int p);
+double Power(double n, int p);
 
 int fib_num(int n);
 
-void Fib1(int lim);
-
-void Fib2(int n);
+void Fibon(int n, double a = 0, double b = 1);
 
 int main()
 {
 	setlocale(LC_ALL, "");
-	int n, p;
-	int num, lim;
+	double n;
+	int p;
+	int num;
 	cout << "¬ведите число и степень: "; cin >> n >> p;
 	cout << Power(n, p) << endl;
 	cout << delimiter;
-	cout << "¬ведите предел дл€ чисел ‘ибоначчи: "; cin >> lim;
+	/*cout << "¬ведите предел дл€ чисел ‘ибоначчи: "; cin >> lim;
 	Fib1(lim);
-	cout << delimiter;
+	cout << delimiter;*/
 	cout << "¬ведите пор€дковый номер числа ‘ибоначчи: "; cin >> num;
-	Fib2(num);
+	Fibon(num);
 }
-int Power_main(int n, int p)
+double Power(double n, int p)
 {
 	if (p == 0) return 1;
-	return n * Power_main(n, p - 1);
-}
-
-double Power(int n, int p)
-{
-	if (p < 0)
-		return 1.0 / Power_main(n, -p);
-	else
-		return Power_main(n, p);
+	//return p == 0 ? 1 : p > 0 ? n * Power(n, p - 1) : 1 / n * Power(n, p + 1);
+	if (p > 0) return n * Power(n, p - 1);
+	else return 1 / n * Power(n, p + 1);
 }
 
 int fib_num(int n)
@@ -47,21 +39,10 @@ int fib_num(int n)
 	return fib_num(n - 1) + fib_num(n - 2);
 }
 
-void Fib1(int lim)
-{
-	int i = 0;
-	while (fib_num(i) <= lim)
-	{
-		cout << fib_num(i) << " ";
-		i++;
-	}
-}
 
-void Fib2(int n)
+void Fibon(int n, double a, double b)
 {
-	for (int i = 0; i < n; i++)
-	{
-		cout << fib_num(i) << " ";
-	}
-	cout << endl;
+	if (n == 0) return;
+	cout << a << "\n";
+	Fibon(n - 1, b, a + b);
 }
