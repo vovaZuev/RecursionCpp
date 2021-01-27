@@ -3,6 +3,30 @@ using namespace std;
 
 #define delimiter "\n===========================================\n";
 
+int Power_main(int n, int p);
+
+double Power(int n, int p);
+
+int fib_num(int n);
+
+void Fib1(int lim);
+
+void Fib2(int n);
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	int n, p;
+	int num, lim;
+	cout << "¬ведите число и степень: "; cin >> n >> p;
+	cout << Power(n, p) << endl;
+	cout << delimiter;
+	cout << "¬ведите предел дл€ чисел ‘ибоначчи: "; cin >> lim;
+	Fib1(lim);
+	cout << delimiter;
+	cout << "¬ведите пор€дковый номер числа ‘ибоначчи: "; cin >> num;
+	Fib2(num);
+}
 int Power_main(int n, int p)
 {
 	if (p == 0) return 1;
@@ -40,19 +64,4 @@ void Fib2(int n)
 		cout << fib_num(i) << " ";
 	}
 	cout << endl;
-}
-
-int main()
-{
-	setlocale(LC_ALL, "");
-	int n, p;
-	int num, lim;
-	cout << "¬ведите число и степень: "; cin >> n >> p;
-	cout << Power(n, p) << endl;
-	cout << delimiter;
-	cout << "¬ведите предел дл€ чисел ‘ибоначчи: "; cin >> lim;
-	Fib1(lim);
-	cout << delimiter;
-	cout << "¬ведите пор€дковый номер числа ‘ибоначчи: "; cin >> num;
-	Fib2(num);
 }
